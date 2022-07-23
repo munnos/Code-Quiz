@@ -14,12 +14,27 @@ var questions = [
     ],
     answer: "Iterate through an array",
   },
+
+  {
+    qtitle:
+      "what kind of form does data need to take to be able to use browser local storage?",
+    choices: ["Booleans", "Strings", "Numbers", "Condiitonal Statement"],
+    answer: "Strings",
+  },
+
+  {
+    qtitle: "What is an array composed of?",
+    choices: ["Objects", "Strings", "Functions", "For loops"],
+    answer: "Objects",
+  },
 ];
 
 var questionIndex = 0;
 var startButton = document.querySelector("#start");
 var questionElement = document.querySelector(".questions");
 var choicesElement = document.querySelector("#choices");
+var timerEl = document.querySelector("#timer");
+var secondsLeft = 60;
 
 function qClick(event) {
   console.log(event.target.innerHTML);
@@ -53,5 +68,17 @@ function startQuiz() {
   renderQuestion();
 }
 
+function setTime() {
+  var timerInterval = setInterval(function () {
+    secondsLeft--;
+    timerEl.textContent = "Time left: " + secondsLeft;
+
+    if (secondsLeft === 0) {
+      clearInterval(timerInterval);
+      alert("You ran out of time! Please try again");
+    }
+    return;
+  }, 1000);
+}
 choicesElement.onclick = qClick;
-startButton.onclick = startQuiz;
+(startButton.onclick = startQuiz), setTime();
