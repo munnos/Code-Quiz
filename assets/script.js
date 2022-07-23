@@ -66,6 +66,7 @@ function startQuiz() {
   startScreen.setAttribute("class", "hide");
   questionElement.removeAttribute("class");
   renderQuestion();
+  setTime();
 }
 
 function setTime() {
@@ -80,5 +81,18 @@ function setTime() {
     return;
   }, 1000);
 }
+
+// function startClick() {
+//   startButton.onClick = setTime();
+//   // startButton.onClick = startQuiz();
+// }
+
+// startClick();
+
+// function click() {
+//   (startButton.onclick = startQuiz), (startButton.onclick = setTime),
+// }
+
+// startButton.onclick = click;
+startButton.onclick = startQuiz;
 choicesElement.onclick = qClick;
-(startButton.onclick = startQuiz), setTime();
