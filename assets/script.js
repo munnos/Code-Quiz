@@ -42,6 +42,8 @@ function qClick(event) {
   if (userChoice === questions[questionIndex].answer) {
     questionIndex++;
     renderQuestion();
+  } else if (userChoice !== questions[questionIndex].answer) {
+    secondsLeft -= 15;
   }
 }
 
@@ -65,15 +67,26 @@ function startQuiz() {
   var startScreen = document.querySelector("#start-screen");
   startScreen.setAttribute("class", "hide");
   questionElement.removeAttribute("class");
-  renderQuestion();
   setTime();
+  renderQuestion();
 }
 
-function setTime() {
+function setTime(event) {
   var timerInterval = setInterval(function () {
     secondsLeft--;
     timerEl.textContent = "Time left: " + secondsLeft;
 
+    // var userChoice = questions.choices;
+    // console.log(questions.choices);
+
+    // if (userChoice === questions.choices) {
+    //   secondsLeft -= 15;
+    //   timerEl.textContent = "Time left: " + secondsLeft;
+    // }
+
+    // if (userChoice !== questions[questionIndex].answer) {
+    //   secondsLeft - 15;
+    //   timerEl.textContent = "Time left: " + secondsLeft;
     if (secondsLeft === 0) {
       clearInterval(timerInterval);
       alert("You ran out of time! Please try again");
