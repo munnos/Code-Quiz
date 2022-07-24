@@ -27,6 +27,12 @@ var questions = [
     choices: ["Objects", "Strings", "Functions", "For loops"],
     answer: "Objects",
   },
+
+  {
+    qtitle: "",
+    choices: "",
+    answer: "",
+  },
 ];
 
 var questionIndex = 0;
@@ -49,6 +55,7 @@ function qClick(event) {
 
 function renderQuestion() {
   var currentQuestion = questions[questionIndex];
+  var endofQuiz = questions[questionIndex[3]];
   var questionTitle = document.querySelector("#question-title");
   console.log(currentQuestion.qtitle);
   questionTitle.textContent = currentQuestion.qtitle;
@@ -58,8 +65,12 @@ function renderQuestion() {
     var choiceLi = document.createElement("li");
     choiceLi.setAttribute("value", choice);
     choiceLi.textContent = choice;
-
     choicesElement.appendChild(choiceLi);
+
+    if (i > endofQuiz) {
+      window.location.replace =
+        "https://munnos.github.io/Code-Quiz/high-score.html";
+    }
   }
 }
 
@@ -94,6 +105,14 @@ function setTime(event) {
     return;
   }, 1000);
 }
+
+// function endofQuiz() {
+//   if (questions[questionIndex] > questions[3]) {
+//     window.location.href(
+//       "file:///C:/Users/munno/OneDrive/desktop/University%20of%20Birmingham%20Coding%20Course/quiz/high-score.html"
+//     );
+//   }
+// }
 
 // function startClick() {
 //   startButton.onClick = setTime();

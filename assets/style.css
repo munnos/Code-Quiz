@@ -5,9 +5,15 @@ font-weight: bold;
 
 }
 
-li {
+#timer {
+
+    list-style: none;
 
     
+}
+
+li {
+    font-weight: bold;
 }
 
 .hide {
