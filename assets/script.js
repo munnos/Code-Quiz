@@ -100,19 +100,20 @@ function setTime(event) {
     //   timerEl.textContent = "Time left: " + secondsLeft;
     if (secondsLeft === 0) {
       clearInterval(timerInterval);
+      endofQuiz();
       alert("You ran out of time! Please try again");
     }
     return;
   }, 1000);
 }
 
-// function endofQuiz() {
-//   if (questions[questionIndex] > questions[3]) {
-//     window.location.href(
-//       "file:///C:/Users/munno/OneDrive/desktop/University%20of%20Birmingham%20Coding%20Course/quiz/high-score.html"
-//     );
-//   }
-// }
+function endofQuiz() {
+  if (questions[questionIndex] > questions[3]) {
+    window.location.replace(
+      "file:///C:/Users/munno/OneDrive/desktop/University%20of%20Birmingham%20Coding%20Course/quiz/high-score.html"
+    );
+  }
+}
 
 // function startClick() {
 //   startButton.onClick = setTime();
