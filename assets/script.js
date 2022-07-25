@@ -86,7 +86,7 @@ function startQuiz() {
   questionElement.removeAttribute("class");
   setTime();
   renderQuestion();
-  endofQuiz();
+  // endofQuiz();
 }
 
 // endofQuiz();
