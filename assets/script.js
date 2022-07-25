@@ -35,6 +35,7 @@ var questionElement = document.querySelector(".questions");
 var choicesElement = document.querySelector("#choices");
 var timerEl = document.querySelector("#timer");
 var secondsLeft = 60;
+var keepScore = document.querySelector("li");
 
 function qClick(event) {
   console.log(event.target.innerHTML);
@@ -45,9 +46,12 @@ function qClick(event) {
   }
   if (userChoice === questions[questionIndex].answer) {
     questionIndex++;
+    // storinghighScore();
     renderQuestion();
   } else if (userChoice !== questions[questionIndex].answer) {
     secondsLeft -= 15;
+    // storinghighScore();
+    renderQuestion();
   }
 }
 
@@ -138,6 +142,20 @@ function setTime(event) {
 //   (startButton.onclick = startQuiz), (startButton.onclick = setTime),
 // }
 
+// function storinghighScore() {
+//   var keepScore = document.querySelector("li").addEventListener(click);
+keepScore.addEventListener("click", function () {
+  var userScore = 0;
+  if (keepScore === questions[questionIndex].answer) {
+    userScore;
+  } else if (keepScore !== questions) {
+    userScore--;
+  }
+  console.log("userScore");
+});
+
 // startButton.onclick = click;
 choicesElement.onclick = qClick;
+// choicesElement.onclick = storinghighScore();
 startButton.onclick = startQuiz;
+// keepScore.onclick = storinghighScore;
