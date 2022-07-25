@@ -45,12 +45,13 @@ function qClick(event) {
   if (userChoice === questions[questionIndex].answer && questionIndex == 3) {
     endofQuiz();
     storingScore();
-    return;
+    // return;
   }
   if (userChoice === questions[questionIndex].answer) {
     questionIndex++;
     userScore++;
     renderQuestion();
+    console.log(userScore);
   } else if (userChoice !== questions[questionIndex].answer) {
     secondsLeft -= 15;
     userScore--;
@@ -103,7 +104,6 @@ function renderQuestion() {
 function endofQuiz() {
   // if (questions[questionIndex] > questions[3]) {
   window.location.replace("high-score.html");
-  storingScore();
 }
 
 function startQuiz() {
@@ -132,19 +132,17 @@ function setTime(event) {
   }, 1000);
 }
 
-choicesElement.onclick = qClick;
-startButton.onclick = startQuiz;
-
 // high scores
-
-var scoreElement = document.querySelector("#high-scores");
 
 function storingScore() {
   var displayscorepTag = document.createElement("p");
   displayscorepTag.setAttribute("value", userScore);
   displayscorepTag.textContent = "Your score is " + userScore;
-  scoreElement.appendChild(displayscorepTag);
+  document.body.appendChild(displayscorepTag);
+
   console.log(userScore);
 }
 
-storingScore();
+
+choicesElement.onclick = qClick;
+startButton.onclick = startQuiz;
