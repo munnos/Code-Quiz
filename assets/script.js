@@ -27,12 +27,6 @@ var questions = [
     choices: ["Objects", "Strings", "Functions", "For loops"],
     answer: "Objects",
   },
-
-  {
-    qtitle: "",
-    choices: "",
-    answer: "",
-  },
 ];
 
 var questionIndex = 0;
@@ -55,7 +49,7 @@ function qClick(event) {
 
 function renderQuestion() {
   var currentQuestion = questions[questionIndex];
-  var endofQuiz = questions[questionIndex[3]];
+  // var arraytoendQuiz = questions[questionIndex[4]];
   var questionTitle = document.querySelector("#question-title");
   console.log(currentQuestion.qtitle);
   questionTitle.textContent = currentQuestion.qtitle;
@@ -66,54 +60,60 @@ function renderQuestion() {
     choiceLi.setAttribute("value", choice);
     choiceLi.textContent = choice;
     choicesElement.appendChild(choiceLi);
-    endofQuiz();
 
-    //   if (i > endofQuiz) {
-    //     window.location.replace =
-    //       "https://munnos.github.io/Code-Quiz/high-score.html";
-    //   }
+    // if (i > currentQuestion.choices.length) {
+    //   endofQuiz();
     // }
   }
+}
 
-  function startQuiz() {
-    var startScreen = document.querySelector("#start-screen");
-    startScreen.setAttribute("class", "hide");
-    questionElement.removeAttribute("class");
-    setTime();
-    renderQuestion();
-  }
+//   if (i > endofQuiz) {
+//     window.location.replace =
+//       "https://munnos.github.io/Code-Quiz/high-score.html";
+//   }
+// }
+//   }
+// }
 
-  function setTime(event) {
-    var timerInterval = setInterval(function () {
-      secondsLeft--;
-      timerEl.textContent = "Time left: " + secondsLeft;
+function endofQuiz() {
+  // if (questions[questionIndex] > questions[3]) {
+  window.location.replace("high-score.html");
+}
 
-      // var userChoice = questions.choices;
-      // console.log(questions.choices);
+function startQuiz() {
+  var startScreen = document.querySelector("#start-screen");
+  startScreen.setAttribute("class", "hide");
+  questionElement.removeAttribute("class");
+  setTime();
+  renderQuestion();
+  endofQuiz();
+}
 
-      // if (userChoice === questions.choices) {
-      //   secondsLeft -= 15;
-      //   timerEl.textContent = "Time left: " + secondsLeft;
-      // }
+// endofQuiz();
 
-      // if (userChoice !== questions[questionIndex].answer) {
-      //   secondsLeft - 15;
-      //   timerEl.textContent = "Time left: " + secondsLeft;
-      if (secondsLeft === 0) {
-        clearInterval(timerInterval);
-        endofQuiz();
-        alert("You ran out of time! Please try again");
-      }
-      return;
-    }, 1000);
-  }
+function setTime(event) {
+  var timerInterval = setInterval(function () {
+    secondsLeft--;
+    timerEl.textContent = "Time left: " + secondsLeft;
 
-  function endofQuiz() {
-    // if (questions[questionIndex] > questions[3]) {
-    window.location.replace(
-      "https://munnos.github.io/Code-Quiz/high-score.html"
-    );
-  }
+    // var userChoice = questions.choices;
+    // console.log(questions.choices);
+
+    // if (userChoice === questions.choices) {
+    //   secondsLeft -= 15;
+    //   timerEl.textContent = "Time left: " + secondsLeft;
+    // }
+
+    // if (userChoice !== questions[questionIndex].answer) {
+    //   secondsLeft - 15;
+    //   timerEl.textContent = "Time left: " + secondsLeft;
+    if (secondsLeft === 0) {
+      clearInterval(timerInterval);
+      alert("You ran out of time! Please try again");
+      endofQuiz();
+    }
+    return;
+  }, 1000);
 }
 
 // function startClick() {
@@ -128,5 +128,5 @@ function renderQuestion() {
 // }
 
 // startButton.onclick = click;
-startButton.onclick = startQuiz;
 choicesElement.onclick = qClick;
+startButton.onclick = startQuiz;
