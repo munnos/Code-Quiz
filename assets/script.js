@@ -35,25 +35,32 @@ var questionElement = document.querySelector(".questions");
 var choicesElement = document.querySelector("#choices");
 var timerEl = document.querySelector("#timer");
 var secondsLeft = 60;
-var keepScore = document.querySelector("li");
+var scoreElement = document.querySelector("#high-scores");
+var userScore = 0;
 
 function qClick(event) {
   console.log(event.target.innerHTML);
   var userChoice = event.target.innerHTML;
+
   if (userChoice === questions[questionIndex].answer && questionIndex == 3) {
     endofQuiz();
+    storingScore();
     return;
   }
   if (userChoice === questions[questionIndex].answer) {
     questionIndex++;
-    // storinghighScore();
+    userScore++;
     renderQuestion();
   } else if (userChoice !== questions[questionIndex].answer) {
     secondsLeft -= 15;
-    // storinghighScore();
+    userScore--;
     renderQuestion();
+    console.log(userScore);
   }
+  return;
 }
+
+// function
 
 function renderQuestion() {
   var currentQuestion = questions[questionIndex];
@@ -68,19 +75,22 @@ function renderQuestion() {
     choiceLi.setAttribute("value", choice);
     choiceLi.textContent = choice;
     choicesElement.appendChild(choiceLi);
-
-    // if (i > currentQuestion.choices.length) {
-    //   endofQuiz();
-    // }
-
-    if (i > currentQuestion.choices.length) {
-      alert(
-        "Congratualtions! You finished the quiz. Here are the high scores!"
-      );
-      endofQuiz();
-    }
   }
 }
+
+// if (i > currentQuestion.choices.length) {
+//   endofQuiz();
+// }
+
+//   if (i > currentQuestion.choices.length) {
+//     alert(
+//       "Congratualtions! You finished the quiz. Here are the high scores!"
+//     );
+//     endofQuiz();
+//     storingScore();
+//   }
+// }
+// storingScore();
 
 //   if (i > endofQuiz) {
 //     window.location.replace =
@@ -93,6 +103,7 @@ function renderQuestion() {
 function endofQuiz() {
   // if (questions[questionIndex] > questions[3]) {
   window.location.replace("high-score.html");
+  storingScore();
 }
 
 function startQuiz() {
@@ -101,6 +112,7 @@ function startQuiz() {
   questionElement.removeAttribute("class");
   setTime();
   renderQuestion();
+
   // endofQuiz();
 }
 
@@ -111,18 +123,7 @@ function setTime(event) {
     secondsLeft--;
     timerEl.textContent = "Time left: " + secondsLeft;
 
-    // var userChoice = questions.choices;
-    // console.log(questions.choices);
-
-    // if (userChoice === questions.choices) {
-    //   secondsLeft -= 15;
-    //   timerEl.textContent = "Time left: " + secondsLeft;
-    // }
-
-    // if (userChoice !== questions[questionIndex].answer) {
-    //   secondsLeft - 15;
-    //   timerEl.textContent = "Time left: " + secondsLeft;
-    if (secondsLeft === 0) {
+    if (secondsLeft <= 0) {
       clearInterval(timerInterval);
       alert("You ran out of time! Please try again");
       endofQuiz();
@@ -131,31 +132,19 @@ function setTime(event) {
   }, 1000);
 }
 
-// function startClick() {
-//   startButton.onClick = setTime();
-//   // startButton.onClick = startQuiz();
-// }
-
-// startClick();
-
-// function click() {
-//   (startButton.onclick = startQuiz), (startButton.onclick = setTime),
-// }
-
-// function storinghighScore() {
-//   var keepScore = document.querySelector("li").addEventListener(click);
-keepScore.addEventListener("click", function () {
-  var userScore = 0;
-  if (keepScore === questions[questionIndex].answer) {
-    userScore;
-  } else if (keepScore !== questions) {
-    userScore--;
-  }
-  console.log("userScore");
-});
-
-// startButton.onclick = click;
 choicesElement.onclick = qClick;
-// choicesElement.onclick = storinghighScore();
 startButton.onclick = startQuiz;
-// keepScore.onclick = storinghighScore;
+
+// high scores
+
+var scoreElement = document.querySelector("#high-scores");
+
+function storingScore() {
+  var displayscorepTag = document.createElement("p");
+  displayscorepTag.setAttribute("value", userScore);
+  displayscorepTag.textContent = "Your score is " + userScore;
+  scoreElement.appendChild(displayscorepTag);
+  console.log(userScore);
+}
+
+storingScore();
