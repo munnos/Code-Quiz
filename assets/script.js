@@ -66,6 +66,7 @@ function renderQuestion() {
     choiceLi.setAttribute("value", choice);
     choiceLi.textContent = choice;
     choicesElement.appendChild(choiceLi);
+    endofQuiz();
 
     //   if (i > endofQuiz) {
     //     window.location.replace =
