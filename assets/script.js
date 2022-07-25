@@ -67,50 +67,50 @@ function renderQuestion() {
     choiceLi.textContent = choice;
     choicesElement.appendChild(choiceLi);
 
-    if (i > endofQuiz) {
-      window.location.replace =
-        "https://munnos.github.io/Code-Quiz/high-score.html";
-    }
-  }
-}
-
-function startQuiz() {
-  var startScreen = document.querySelector("#start-screen");
-  startScreen.setAttribute("class", "hide");
-  questionElement.removeAttribute("class");
-  setTime();
-  renderQuestion();
-}
-
-function setTime(event) {
-  var timerInterval = setInterval(function () {
-    secondsLeft--;
-    timerEl.textContent = "Time left: " + secondsLeft;
-
-    // var userChoice = questions.choices;
-    // console.log(questions.choices);
-
-    // if (userChoice === questions.choices) {
-    //   secondsLeft -= 15;
-    //   timerEl.textContent = "Time left: " + secondsLeft;
+    //   if (i > endofQuiz) {
+    //     window.location.replace =
+    //       "https://munnos.github.io/Code-Quiz/high-score.html";
+    //   }
     // }
+  }
 
-    // if (userChoice !== questions[questionIndex].answer) {
-    //   secondsLeft - 15;
-    //   timerEl.textContent = "Time left: " + secondsLeft;
-    if (secondsLeft === 0) {
-      clearInterval(timerInterval);
-      endofQuiz();
-      alert("You ran out of time! Please try again");
-    }
-    return;
-  }, 1000);
-}
+  function startQuiz() {
+    var startScreen = document.querySelector("#start-screen");
+    startScreen.setAttribute("class", "hide");
+    questionElement.removeAttribute("class");
+    setTime();
+    renderQuestion();
+  }
 
-function endofQuiz() {
-  if (questions[questionIndex] > questions[3]) {
+  function setTime(event) {
+    var timerInterval = setInterval(function () {
+      secondsLeft--;
+      timerEl.textContent = "Time left: " + secondsLeft;
+
+      // var userChoice = questions.choices;
+      // console.log(questions.choices);
+
+      // if (userChoice === questions.choices) {
+      //   secondsLeft -= 15;
+      //   timerEl.textContent = "Time left: " + secondsLeft;
+      // }
+
+      // if (userChoice !== questions[questionIndex].answer) {
+      //   secondsLeft - 15;
+      //   timerEl.textContent = "Time left: " + secondsLeft;
+      if (secondsLeft === 0) {
+        clearInterval(timerInterval);
+        endofQuiz();
+        alert("You ran out of time! Please try again");
+      }
+      return;
+    }, 1000);
+  }
+
+  function endofQuiz() {
+    // if (questions[questionIndex] > questions[3]) {
     window.location.replace(
-      "file:///C:/Users/munno/OneDrive/desktop/University%20of%20Birmingham%20Coding%20Course/quiz/high-score.html"
+      "https://munnos.github.io/Code-Quiz/high-score.html"
     );
   }
 }
