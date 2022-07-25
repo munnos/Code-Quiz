@@ -39,6 +39,10 @@ var secondsLeft = 60;
 function qClick(event) {
   console.log(event.target.innerHTML);
   var userChoice = event.target.innerHTML;
+  if (userChoice === questions[questionIndex].answer && questionIndex == 3) {
+    endofQuiz();
+    return;
+  }
   if (userChoice === questions[questionIndex].answer) {
     questionIndex++;
     renderQuestion();
@@ -64,6 +68,13 @@ function renderQuestion() {
     // if (i > currentQuestion.choices.length) {
     //   endofQuiz();
     // }
+
+    if (i > currentQuestion.choices.length) {
+      alert(
+        "Congratualtions! You finished the quiz. Here are the high scores!"
+      );
+      endofQuiz();
+    }
   }
 }
 
