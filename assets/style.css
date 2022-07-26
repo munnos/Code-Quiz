@@ -1,3 +1,7 @@
+* {
+    background-color: aqua;
+}
+
 
 .questions {
 
@@ -8,6 +12,8 @@ font-weight: bold;
 #timer {
 
     list-style: none;
+    
+    
 
     
 }
@@ -19,4 +25,18 @@ li {
 .hide {
 
     display: none;
+}
+
+a {
+
+    text-decoration: none;
+    color: blue;
+
+}
+
+#start {
+
+    background-color: white;
+    text-decoration: black;
+
 }

@@ -29,9 +29,9 @@ submitBtn.addEventListener("click", function (event) {
 
   console.log(userRecord);
 
-  for (let i = 0; i < userInput.length; i++) {
+  for (let i = 0; i < scores.length; i++) {
     var listEl = document.createElement("li");
-    listEl.textContent = Scores[i].name + " " + Scores[i].score;
+    listEl.textContent = scores[i].name + " " + scores[i].score;
     highscoresList.appendChild(listEl);
   }
 });
