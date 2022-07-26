@@ -49,6 +49,7 @@ var userScore = 0;
 function qClick(event) {
   console.log(event.target.innerHTML);
   var userChoice = event.target.innerHTML;
+  localStorage.setItem("score", userScore);
 
   if (userChoice === questions[questionIndex].answer && questionIndex === 3) {
     endofQuiz();
@@ -140,19 +141,9 @@ function setTime(event) {
   }, 1000);
 }
 
-if (questions !== questions[3]) {
-  choicesElement.onclick = qClick;
-  startButton.onclick = startQuiz;
-  storingScore();
-}
-
 // high scores
 
-function storingScore() {
-  var displayscorepTag = document.createElement("p");
-  displayscorepTag.setAttribute("value", userScore);
-  displayscorepTag.textContent = "Your score is " + userScore;
-  document.body.appendChild(displayscorepTag);
+choicesElement.onclick = qClick;
+startButton.onclick = startQuiz;
 
-  console.log(userScore);
-}
+// high scores
