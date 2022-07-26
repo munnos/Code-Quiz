@@ -1,3 +1,5 @@
+console.log("is this working?");
+
 var questions = [
   {
     qtitle: "What is a boolean?",
@@ -27,6 +29,12 @@ var questions = [
     choices: ["Objects", "Strings", "Functions", "For loops"],
     answer: "Objects",
   },
+
+  {
+    qtitle: "",
+    choices: [""],
+    answer: "",
+  },
 ];
 
 var questionIndex = 0;
@@ -42,7 +50,7 @@ function qClick(event) {
   console.log(event.target.innerHTML);
   var userChoice = event.target.innerHTML;
 
-  if (userChoice === questions[questionIndex].answer && questionIndex == 3) {
+  if (userChoice === questions[questionIndex].answer && questionIndex === 3) {
     endofQuiz();
     storingScore();
     // return;
@@ -132,6 +140,12 @@ function setTime(event) {
   }, 1000);
 }
 
+if (questions !== questions[3]) {
+  choicesElement.onclick = qClick;
+  startButton.onclick = startQuiz;
+  storingScore();
+}
+
 // high scores
 
 function storingScore() {
@@ -142,7 +156,3 @@ function storingScore() {
 
   console.log(userScore);
 }
-
-
-choicesElement.onclick = qClick;
-startButton.onclick = startQuiz;
