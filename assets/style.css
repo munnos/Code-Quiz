@@ -1,54 +1,37 @@
-* {
-    background-color: aqua;
+body {
+  background-color: aqua;
 }
 
-
 .questions {
-
-font-weight: bold;
-
+  font-weight: bold;
 }
 
 #timer {
-
-    list-style: none;
-    
-    
-
-    
+  list-style: none;
 }
 
-
-
 li {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .hide {
-
-    display: none;
+  display: none;
 }
 
 a {
-
-    text-decoration: none;
-    color: blue;
-
+  text-decoration: none;
+  color: blue;
 }
 
 #start {
-
-    background-color: white;
-    text-decoration: black;
-
+  background-color: white;
+  text-decoration: black;
 }
 
 #link-back-to-quiz {
-
-   float: right;
+  float: right;
 }
 
 #submitButton {
-    background-color: white;
+  background-color: white;
 }
-

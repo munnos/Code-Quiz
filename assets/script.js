@@ -54,7 +54,7 @@ function qClick(event) {
   if (userChoice === questions[questionIndex].answer && questionIndex === 3) {
     endofQuiz();
     storingScore();
-    // return;
+    
   }
   if (userChoice === questions[questionIndex].answer) {
     questionIndex++;
@@ -74,7 +74,6 @@ function qClick(event) {
 
 function renderQuestion() {
   var currentQuestion = questions[questionIndex];
-  // var arraytoendQuiz = questions[questionIndex[4]];
   var questionTitle = document.querySelector("#question-title");
   console.log(currentQuestion.qtitle);
   questionTitle.textContent = currentQuestion.qtitle;
@@ -88,30 +87,10 @@ function renderQuestion() {
   }
 }
 
-// if (i > currentQuestion.choices.length) {
-//   endofQuiz();
-// }
 
-//   if (i > currentQuestion.choices.length) {
-//     alert(
-//       "Congratualtions! You finished the quiz. Here are the high scores!"
-//     );
-//     endofQuiz();
-//     storingScore();
-//   }
-// }
-// storingScore();
-
-//   if (i > endofQuiz) {
-//     window.location.replace =
-//       "https://munnos.github.io/Code-Quiz/high-score.html";
-//   }
-// }
-//   }
-// }
 
 function endofQuiz() {
-  // if (questions[questionIndex] > questions[3]) {
+ 
   window.location.replace("high-score.html");
 }
 
@@ -122,10 +101,10 @@ function startQuiz() {
   setTime();
   renderQuestion();
 
-  // endofQuiz();
+  
 }
 
-// endofQuiz();
+
 
 function setTime(event) {
   var timerInterval = setInterval(function () {
