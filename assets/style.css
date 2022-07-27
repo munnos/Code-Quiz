@@ -18,6 +18,8 @@ font-weight: bold;
     
 }
 
+
+
 li {
     font-weight: bold;
 }
@@ -40,3 +42,13 @@ a {
     text-decoration: black;
 
 }
+
+#link-back-to-quiz {
+
+   float: right;
+}
+
+#submitButton {
+    background-color: white;
+}
+
