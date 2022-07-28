@@ -1,5 +1,7 @@
 console.log("is this working?");
 
+// Array storing questions and answers
+
 var questions = [
   {
     qtitle: "What is a boolean?",
@@ -19,8 +21,8 @@ var questions = [
 
   {
     qtitle:
-      "what kind of form does data need to take to be able to use browser local storage?",
-    choices: ["Booleans", "Strings", "Numbers", "Condiitonal Statement"],
+      "What kind of form does data need to take to be able to use browser local storage?",
+    choices: ["Booleans", "Strings", "Numbers", "Conditional Statement"],
     answer: "Strings",
   },
 
@@ -28,12 +30,6 @@ var questions = [
     qtitle: "What is an array composed of?",
     choices: ["Objects", "Strings", "Functions", "For loops"],
     answer: "Objects",
-  },
-
-  {
-    qtitle: "",
-    choices: [""],
-    answer: "",
   },
 ];
 
@@ -46,6 +42,8 @@ var secondsLeft = 60;
 var scoreElement = document.querySelector("#high-scores");
 var userScore = 0;
 
+// Function keeping track of score and penalising user 15 seconds off timer if answer question incorrectly
+
 function qClick(event) {
   console.log(event.target.innerHTML);
   var userChoice = event.target.innerHTML;
@@ -54,7 +52,6 @@ function qClick(event) {
   if (userChoice === questions[questionIndex].answer && questionIndex === 3) {
     endofQuiz();
     storingScore();
-    
   }
   if (userChoice === questions[questionIndex].answer) {
     questionIndex++;
@@ -70,7 +67,7 @@ function qClick(event) {
   return;
 }
 
-// function
+// function which renders questions
 
 function renderQuestion() {
   var currentQuestion = questions[questionIndex];
@@ -87,10 +84,9 @@ function renderQuestion() {
   }
 }
 
-
+// redirection to high-score.html page when quiz ends
 
 function endofQuiz() {
- 
   window.location.replace("high-score.html");
 }
 
@@ -100,11 +96,9 @@ function startQuiz() {
   questionElement.removeAttribute("class");
   setTime();
   renderQuestion();
-
-  
 }
 
-
+// Timer
 
 function setTime(event) {
   var timerInterval = setInterval(function () {
@@ -120,9 +114,7 @@ function setTime(event) {
   }, 1000);
 }
 
-// high scores
+// Starts quiz functions when user clicks Start Quiz button
 
 choicesElement.onclick = qClick;
 startButton.onclick = startQuiz;
-
-// high scores
