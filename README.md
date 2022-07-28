@@ -21,9 +21,6 @@ but to make the project aesthetically pleasing I also made use of bootstrap to g
 
 
 
-
-
-
-##Deployment
+## Deployment
 
 Link to project - https://munnos.github.io/Code-Quiz/
